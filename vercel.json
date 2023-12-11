@@ -1,5 +1,14 @@
 {
-    "rewrites": [
-      { "source": "/(.*)", "destination": "/" }
+    "version": 2,
+    "builds": [
+      {
+        "src": "api/**/*",
+        "use": "@vercel/node",
+        "config": { "engines": { "node": "14.x" } }
+      }
+    ],
+    "routes": [
+      { "src": "/api/(.*)", "dest": "/api/$1" }
     ]
   }
+  
