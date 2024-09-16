@@ -16,7 +16,14 @@
  const order=require("./routes/orderRoutes");
  const payment = require("./routes/paymentRoites");
 
- app.use(cors());
+ app.use(cors({
+  origin: (origin, callback) => {
+   
+    callback(null, origin);
+  },
+  credentials: true,  
+}));
+
  app.use(express.json());
  app.use(cookieParser());
  app.use(bodyParser.urlencoded({ extended:true }));
